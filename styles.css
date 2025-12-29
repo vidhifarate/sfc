@@ -121,6 +121,7 @@ nav {
     gap: 35px;
     margin: 0;
     padding: 0;
+    transition: all 0.3s ease; /* added for smoother state changes */
 }
 
 .nav-links li a {
@@ -139,7 +140,7 @@ nav {
     border-bottom: 3px solid var(--acc);
 }
 
-/* Responsive Navbar */
+/* Responsive Navbar
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
@@ -154,6 +155,53 @@ nav {
     }
     .nav-links li a {
         font-size: 0.9rem;
+    }
+} */
+/* --- Desktop: Hide hamburger icon by default (keeps compatibility) --- */
+.menu-icon, .menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    color: var(--main);
+    cursor: pointer;
+}
+
+/* --- Mobile Responsiveness: collapse/expand via max-height (better animation) --- */
+@media (max-width: 768px) {
+    .menu-icon, .menu-toggle {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--light);
+        flex-direction: column;
+        align-items: center;
+        gap: 0; /* Stack links vertically */
+        max-height: 0; /* Hidden by default */
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+
+    /* This class will be toggled via JavaScript to expand the menu */
+    .nav-links.active {
+        max-height: 520px; /* adjust if you need more/less space */
+        padding: 20px 0;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        font-size: 1.1rem;
+        display: block;
+        padding: 10px;
     }
 }
 
