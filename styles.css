@@ -59,7 +59,7 @@ hr {
     text-align: center;
     background: linear-gradient(135deg, var(--main) 0%, #3a5c77 100%);
     color: var(--light);
-    padding: 20px 20px 0px;
+    padding: 100px 20px 60px;
 }
 
 .hero-image {
@@ -717,3 +717,5 @@ footer {
         width: 100%;
     }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
